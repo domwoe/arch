@@ -3,4 +3,9 @@
 *.pdf
 *.aux
 *.fls
-
+HEAD
+branches
+info
+objects
+hooks
+refs
