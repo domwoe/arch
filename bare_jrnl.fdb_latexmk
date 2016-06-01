@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1463674297 "bare_jrnl.tex" "bare_jrnl.pdf" "bare_jrnl" 1463674298
+["pdflatex"] 1464797853 "bare_jrnl.tex" "bare_jrnl.pdf" "bare_jrnl" 1464797854
   "/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2013/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -30,13 +30,15 @@
   "/usr/local/texlive/2013/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf" 1136768653 1948 7330aeef3af211edff3b35fb2c12a0fd ""
   "/usr/local/texlive/2013/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1136768653 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty" 1254151720 13146 3e38b06d6e7ca62ce1bdb63b0d6148a5 ""
+  "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty" 1254151720 6076 90ca6002d5df607cc27699a4af5ff84e ""
   "/usr/local/texlive/2013/texmf-dist/web2c/texmf.cnf" 1366045088 31707 0953c15448e216a6585e92ee639d2dc2 ""
   "/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1369923225 1072746 3ce1f23f203cb4a0015ca3c8411dee4a ""
   "/usr/local/texlive/2013/texmf-var/web2c/pdftex/pdflatex.fmt" 1400657356 3827029 9833f5950ba280ff7e801175b3995653 ""
   "/usr/local/texlive/2013/texmf.cnf" 1369923207 577 cbc827f6294276973a1952e86e8ad73a ""
   "IEEEtran.cls" 1440627644 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "bare_jrnl.aux" 1463674298 894 7cab25f4d8547412d493cb3050636867 ""
-  "bare_jrnl.tex" 1440626475 26887 b98ca6d4bd806adff0205c8aa8d45804 ""
+  "bare_jrnl.aux" 1464797854 2534 a50203d05744a44cf9d7728271e5b15e ""
+  "bare_jrnl.tex" 1464797853 34680 638937db15bec01d62afb232817922ac ""
   (generated)
   "bare_jrnl.pdf"
   "bare_jrnl.log"

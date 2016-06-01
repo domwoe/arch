@@ -83,7 +83,7 @@
 % have to be run twice to clear warning/error messages.
 
 
-
+\usepackage{tabularx}
 
 
 
@@ -474,19 +474,86 @@ IEEE, IEEEtran, journal, \LaTeX, paper, template.
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+\IEEEPARstart{O}{ver} the last couple of decades general purpose computing has evolved from hundreds of room-sized mainframe computers to billions of pocket-sized smartphones. Today, computing is a commodity. Off-the shelf systems-on-a-chips incorporating various network interfaces and open source software enables manufacturers to enable their products to be connected to the Internet with little additional cost. Products get identities and their individual histories and the contexts they live in are recorded. The same technologies are used in commercial and industrial settings to monitor supply chains, agriculture, industrial machinery, the electricity grid, city transportation and parking systems. Taken together we are able to digitize the physical world, from the inanimate environment over the individual to social interactions and societies, in an unprecedented resolution. Both spatially and temporarily. This is the Internet of Things or rather the Internet of Everything. However, today the prevailing architecture is a client-server model. Connected products report back to a central server or a cloud infrastructure where data is kept in proprietary databases, often referred to silos. Data is the new oil and considered as a valuable asset. It may be used to increase the efficiency of business processes, support decision making, and enables new business models.
+In many case we, as consumers, are the sources and a small number of companies are the drains. While today we typically have to make a conscious effort to connect devices to the Internet, and thus to the manufacturer, by setting-up a wifi connection, future products might be connected by default. Arguably for the greatest societal benefit data should flow freely. Individuals, as citizen scientists or as entrepreneurs should be able to access the same data as large corporations in order to make new scientific discoveries and build better products and services. On th other hand free data poses a risk for the privacy of the individual. However, currently data does neither flow freely nor is the individual's privacy protected. In this paper we examine different architectural blue prints for data storage, sharing and computation in the age of the Internet of Things. The main principle and vantage point is to free data without neglecting the privacy of the individual. 
 
-\hfill mds
- 
-\hfill August 26, 2015
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\section{Tools for governance}
+
+\subsection{Law}
+
+\subsection{Architecture}
+
+\subsection{Incentives}
+
+\section{Performance criteria}
+
+\subsection{Privacy}
+
+\subsection{Interoperability}
+
+\subsection{Complexity}
+
+\subsection{Discoverability}
+
+\subsection{Security / Resilience}
+
+\subsection{Cost}
+
+
+
+\section{Architectural Archetypes}
+
+\subsection{Silos}
+
+Today most manufacturers store collected data in dedicated databases either on premise or in managed databases offered by third party providers. Consumers usually give up the rights on the collected data by agreeing to the terms of service, and are able to access the data only through a limited API. Only in rare cases the raw data is available. Hence, the manufacturer acts as a gatekeeper. Data might lie dormant and underutilized in a database or is sold to third parties without explicit consent or revenue sharing. Privacy can be only guaranteed by law and trust. Data sharing is non-existent or only with selected parties. There is huge technological complexity if different data sources have to be combined because manufacturers may use different data schemes and different APIs. 
+
+\subsection{Centralized platform}
+
+This complexity can be mitigated by using a central platform. There are various providers of IoT platform solutions. Bringing multiple manufacturers on a common platform simplifies interoperability and data sharing tremendously. However, the platform provider is a single point of failure, may have access to all data, and is able track every interaction. Therefore the platform provider becomes a very powerful actor demanding a high level of trust. 
+
+\subsection{Personal data stores}
+
+Personal data stores are central repositories of an individual's data. A personal data store may be hosted by the individual itself or hosted with a trusted cloud service. This allows the individual to define fine grained access rights to her data. Third party requesters such as applications can request permission to particular data. Every request and transaction can be logged and access rights can be revoked. However, there is no control over data that has once been accessed by a third party. Systems like openPDS therefore employ an approach which allows to permit only certain types of queries instead of giving access to raw data. For example a health insurance provider could be granted to ask if you've walked more than 10 000 steps to grant you a discount. This leaks much less privacy sensitive information than giving access to the raw step count or even a GPS trail.
+
+Personal data stores give individuals the ability to have a holistic view of the data they generate and a way to manage and audit how their data is used. However, the individual's privacy can be protected even stronger. In many cases data requesters are not interested in information about individuals but in information of groups of individuals that share some common properties, e.g. people who are living in the same city.
+In the current model a requester would search for personal data stores of people living in a specific city and then query each individual data store. Thereby, the requester collects data of each individual and aggregates the data on her own machine. This unnecessary leakage of individual data can be mitigated by establishing a peer-to-peer network between the personal data stores such that computations involving data of multiple personal data stores can be executed within the network. In order to prevent owner's of personal stores and network observers to learn about transferred data, data should be encrypted and computations should be executed within a trusted computing environment.
+
+The main obstacle of this approach is the following chicken-and-egg problem. Consumers only demand a personal data store if devices and services support it. On the other hand device manufacturers and service providers will only provide compatibility to personal data stores if there is significant consumer demand.
+
+From a practical point of view the ideal systems to implement personal data stores would be routers, set-top boxes or smart home hubs.
+
+\subsection{Autonomous edges}
+
+In a sense the idea of a personal data store can be driven to it's extreme. Each individual connected device could act as its own personal data store. However heterogeneity and limited resources of devices complicate the implementation tremendously. Nevertheless, economics of scale always pushes to common platforms and would make such an architecture conceivable. 
+
+The web of things could be seen as the simplest instantiation of this approach. Here, every connected device is a web server that exposes its resources and services as RESTful APIs. An evolution of the web of things paradigm is pursued with the machine-payable web 
+
+\subsection{Decentralized platform}
+
+\begin{table*}[]
+\centering
+\caption{My caption}
+\label{tbl:architectures}
+\begin{tabularx}{\textwidth}{|X|l|}
+\hline
+Architecture                                                             & Example                   \\ \hline \hline
+Centralized platform                                                             & Xively                     \\ \hline
+Decentralized platform based on personal data stores (data pull)                           & OpenPDS, Hub of all Things \\ \hline
+Decentralized platform based on local/closed data stores (algorithm push) 
+& OPAL\\ \hline
+Decentralized platform based on multiparty computation                           &                            \\ \hline
+Decentralized platform based on secret sharing and secure multiparty computation & Enigma                     \\ \hline
+\end{tabularx}
+\end{table*}
+
+
+
+
+\section{Physical and organizational separation but logical centralization}
+
+
+
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
