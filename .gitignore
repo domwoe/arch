@@ -3,6 +3,7 @@
 *.pdf
 *.aux
 *.fls
+*.fdb_latexmk
 HEAD
 branches
 info
