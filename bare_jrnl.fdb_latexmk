@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1464797853 "bare_jrnl.tex" "bare_jrnl.pdf" "bare_jrnl" 1464797854
+["pdflatex"] 1465310709 "bare_jrnl.tex" "bare_jrnl.pdf" "bare_jrnl" 1465310710
   "/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2013/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -20,6 +20,7 @@
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
@@ -37,9 +38,9 @@
   "/usr/local/texlive/2013/texmf-var/web2c/pdftex/pdflatex.fmt" 1400657356 3827029 9833f5950ba280ff7e801175b3995653 ""
   "/usr/local/texlive/2013/texmf.cnf" 1369923207 577 cbc827f6294276973a1952e86e8ad73a ""
   "IEEEtran.cls" 1440627644 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "bare_jrnl.aux" 1464797854 2534 a50203d05744a44cf9d7728271e5b15e ""
-  "bare_jrnl.tex" 1464797853 34680 638937db15bec01d62afb232817922ac ""
+  "bare_jrnl.aux" 1465310710 5743 d8f72c6d5e13ba5486ff007afa74629c ""
+  "bare_jrnl.tex" 1465310704 44748 6bfae10f913eb3ffdd7df0df14853090 ""
   (generated)
   "bare_jrnl.pdf"
-  "bare_jrnl.log"
   "bare_jrnl.aux"
+  "bare_jrnl.log"

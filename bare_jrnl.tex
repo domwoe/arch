@@ -358,7 +358,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Towards an Internet of Things Data Infrastructure}
+\title{On Internet of Things Data Infrastructure}
 %
 %
 % author names and IEEE memberships
@@ -478,13 +478,38 @@ IEEE, IEEEtran, journal, \LaTeX, paper, template.
 In many case we, as consumers, are the sources and a small number of companies are the drains. While today we typically have to make a conscious effort to connect devices to the Internet, and thus to the manufacturer, by setting-up a wifi connection, future products might be connected by default. Arguably for the greatest societal benefit data should flow freely. Individuals, as citizen scientists or as entrepreneurs should be able to access the same data as large corporations in order to make new scientific discoveries and build better products and services. On th other hand free data poses a risk for the privacy of the individual. However, currently data does neither flow freely nor is the individual's privacy protected. In this paper we examine different architectural blue prints for data storage, sharing and computation in the age of the Internet of Things. The main principle and vantage point is to free data without neglecting the privacy of the individual. 
 
 
+\section{Privacy in the age of ubiquitous connectivity}
+
+\subsubsection{Awareness}
+A user needs to be aware which devices collect what data and with whom these data are shared.
+
+\subsubsection{Access}
+A user needs to have access to the raw data.
+
+\subsubsection{Control}
+A user needs to have control over what data are collected. She should be able to delete data or revoke access to data. In particular should she be able to control subsequent control of data. 
+
+
 \section{Tools for governance}
 
-\subsection{Law}
+\subsection{Laws}
+Since the advent of the nation state laws are used to restrict the power of individuals and corporations. From the perspective of an IoT data platform there are laws that are imposed by the states the platform acts in, and there are laws govern the platform ecosystem from within. These partly self-selected laws take usually the form terms of service. 
+
+Laws however only have teeth if they can be enforced. Furthermore laws may be subject to change.
+
+\subsection{Norms} 
+
+Social norms are a powerful mechanism that shape human behavior. They represent what behaviors are approved and disapproved in a given community. However, if actions of individuals are anonymous either because of technology or because actions are executed on behalf of a large organization, social norms become less effective.
 
 \subsection{Architecture}
 
 \subsection{Incentives}
+
+\subsection{Trust}
+
+The working definition of the Trusted Computing Group for \emph{trust} is "an entity can be trusted if it always behaves in the expected manner for the intended purpose".
+
+
 
 \section{Performance criteria}
 
@@ -502,55 +527,198 @@ In many case we, as consumers, are the sources and a small number of companies a
 
 
 
-\section{Architectural Archetypes}
-
-\subsection{Silos}
-
-Today most manufacturers store collected data in dedicated databases either on premise or in managed databases offered by third party providers. Consumers usually give up the rights on the collected data by agreeing to the terms of service, and are able to access the data only through a limited API. Only in rare cases the raw data is available. Hence, the manufacturer acts as a gatekeeper. Data might lie dormant and underutilized in a database or is sold to third parties without explicit consent or revenue sharing. Privacy can be only guaranteed by law and trust. Data sharing is non-existent or only with selected parties. There is huge technological complexity if different data sources have to be combined because manufacturers may use different data schemes and different APIs. 
-
-\subsection{Centralized platform}
-
-This complexity can be mitigated by using a central platform. There are various providers of IoT platform solutions. Bringing multiple manufacturers on a common platform simplifies interoperability and data sharing tremendously. However, the platform provider is a single point of failure, may have access to all data, and is able track every interaction. Therefore the platform provider becomes a very powerful actor demanding a high level of trust. 
-
-\subsection{Personal data stores}
-
-Personal data stores are central repositories of an individual's data. A personal data store may be hosted by the individual itself or hosted with a trusted cloud service. This allows the individual to define fine grained access rights to her data. Third party requesters such as applications can request permission to particular data. Every request and transaction can be logged and access rights can be revoked. However, there is no control over data that has once been accessed by a third party. Systems like openPDS therefore employ an approach which allows to permit only certain types of queries instead of giving access to raw data. For example a health insurance provider could be granted to ask if you've walked more than 10 000 steps to grant you a discount. This leaks much less privacy sensitive information than giving access to the raw step count or even a GPS trail.
-
-Personal data stores give individuals the ability to have a holistic view of the data they generate and a way to manage and audit how their data is used. However, the individual's privacy can be protected even stronger. In many cases data requesters are not interested in information about individuals but in information of groups of individuals that share some common properties, e.g. people who are living in the same city.
-In the current model a requester would search for personal data stores of people living in a specific city and then query each individual data store. Thereby, the requester collects data of each individual and aggregates the data on her own machine. This unnecessary leakage of individual data can be mitigated by establishing a peer-to-peer network between the personal data stores such that computations involving data of multiple personal data stores can be executed within the network. In order to prevent owner's of personal stores and network observers to learn about transferred data, data should be encrypted and computations should be executed within a trusted computing environment.
-
-The main obstacle of this approach is the following chicken-and-egg problem. Consumers only demand a personal data store if devices and services support it. On the other hand device manufacturers and service providers will only provide compatibility to personal data stores if there is significant consumer demand.
-
-From a practical point of view the ideal systems to implement personal data stores would be routers, set-top boxes or smart home hubs.
-
-\subsection{Autonomous edges}
-
-In a sense the idea of a personal data store can be driven to it's extreme. Each individual connected device could act as its own personal data store. However heterogeneity and limited resources of devices complicate the implementation tremendously. Nevertheless, economics of scale always pushes to common platforms and would make such an architecture conceivable. 
-
-The web of things could be seen as the simplest instantiation of this approach. Here, every connected device is a web server that exposes its resources and services as RESTful APIs. An evolution of the web of things paradigm is pursued with the machine-payable web 
-
-\subsection{Decentralized platform}
-
-\begin{table*}[]
-\centering
-\caption{My caption}
-\label{tbl:architectures}
-\begin{tabularx}{\textwidth}{|X|l|}
-\hline
-Architecture                                                             & Example                   \\ \hline \hline
-Centralized platform                                                             & Xively                     \\ \hline
-Decentralized platform based on personal data stores (data pull)                           & OpenPDS, Hub of all Things \\ \hline
-Decentralized platform based on local/closed data stores (algorithm push) 
-& OPAL\\ \hline
-Decentralized platform based on multiparty computation                           &                            \\ \hline
-Decentralized platform based on secret sharing and secure multiparty computation & Enigma                     \\ \hline
-\end{tabularx}
-\end{table*}
+\section{Architectures}
 
 
+\subsection{State of the art: Silos}
 
+Today most manufacturers store collected data in dedicated databases either on premise or in managed databases offered by third party providers. Consumers usually give up the rights on collected data by agreeing to terms of service, and are able to access data only through  restricted APIs. Only in rare cases the raw data is available. Hence, the manufacturer acts as a gatekeeper. Data might lie dormant and underutilized in a database or is sold to third parties without explicit consent or revenue sharing. Privacy is only guaranteed by law and trust. Data sharing is non-existent or only with selected parties. There is huge technological complexity if different data sources have to be combined because manufacturers may use different data schemes and different APIs. 
+
+\subsection{State of the art: Centralized platform}
+
+
+\subsection{Nervousnet}
+
+The Planetary Nervous System is a distributed platform aiming to provide real-time data mining services as a public good. Although integration of various IoT devices is planned the platform is currently based on a mobile smartphone application called Nervousnet. The application exposes different physical and software sensors of the underlying system. For each sensor the user can control if measurement data is stored locally and/or shared with other platform participants. From an API perspective the primitive is a virtual sensor model which is able to transform a number of input streams to virtual sensor output stream by applying aggregation and filtering functions. Thus far only \emph{local} virtual sensors are implemented, i.e. computations involving measurement data of multiple users cannot be executed on the network, but all individual measurements have to be exposed to the requester. 
+
+Real-time
+Distributed
+How is discovery fascilitated? Payments? Governance?
+
+
+\subsection{Global Data Plane}
+
+
+\subsection{OpenPDS}
+
+Personal data stores aim to collect data from devices owned by an individual by providing open APIs that can be integrated by device manufactures. Personal data stores can either be hosted locally, e.g. as part of an Internet router, smart home hub, or set-top box, or can be hosted by a trusted third party. Personal data stores then provide standardized APIs for third party services to access a user's data. In addition openPDS implements an analytics engine called SafeAnswers. Thereby third party services do not need to ask for permission to access raw data, but can request permission to execute certain computations within the PDS. Hence, only specific answers are sent to the third party instead of the data itself. OpenPDS will typically run on reasonably powerful hardware with continuous network connectivity. Thus, the platform is suitable to take part in multi-party computation protocols. This would allow to implement APIs that combine data of multiple PDS. However, data of one user may exposed to instances running on an other user's machine. 
+
+\subsection{OPAL}
+
+\subsection{Enigma}
+
+Enigma utilizes various aspects of the Bitcoin Blockchain to provide a practical implementation of distributed encrypted storage based on secret sharing and secure multi-party computation on an open network of voluntary, untrusted nodes. From a practical point of view Enigma is able to provide the same functionality as the multi-party version of openPDS, with additional privacy guarantees, and without the need to run a node. Hence, Enigma feels like a cloud platform but without the usual privacy implications. Participation in the network is incentivized by providing payments in bitcoin. Correct behavior is enforced through game-theoretic mechanism design involving security deposits and an immutable audit trail on the blockchain. 
+
+
+\subsection{Hub of All Things}
+
+% \subsection{Centralized platform}
+
+% This complexity can be mitigated by using a central platform. There are various providers of IoT platform solutions. Bringing multiple manufacturers on a common platform simplifies interoperability and data sharing tremendously. However, the platform provider is a single point of failure, may have access to all data, and is able track every interaction. Therefore the platform provider becomes a very powerful actor demanding a high level of trust. 
+
+% \subsection{Personal data stores}
+
+% Personal data stores are central repositories of an individual's data. A personal data store may be hosted by the individual itself or hosted with a trusted cloud service. This allows the individual to define fine grained access rights to her data. Third party requesters such as applications can request permission to particular data. Every request and transaction can be logged and access rights can be revoked. However, there is no control over data that has once been accessed by a third party. Systems like openPDS therefore employ an approach which allows to permit only certain types of queries instead of giving access to raw data. For example a health insurance provider could be granted to ask if you've walked more than 10 000 steps to grant you a discount. This leaks much less privacy sensitive information than giving access to the raw step count or even a GPS trail.
+
+% Personal data stores give individuals the ability to have a holistic view of the data they generate and a way to manage and audit how their data is used. However, the individual's privacy can be protected even stronger. In many cases data requesters are not interested in information about individuals but in information of groups of individuals that share some common properties, e.g. people who are living in the same city.
+% In the current model a requester would search for personal data stores of people living in a specific city and then query each individual data store. Thereby, the requester collects data of each individual and aggregates the data on her own machine. This unnecessary leakage of individual data can be mitigated by establishing a peer-to-peer network between the personal data stores such that computations involving data of multiple personal data stores can be executed within the network. In order to prevent owner's of personal stores and network observers to learn about transferred data, data should be encrypted and computations should be executed within a trusted computing environment.
+
+% The main obstacle of this approach is the following chicken-and-egg problem. Consumers only demand a personal data store if devices and services support it. On the other hand device manufacturers and service providers will only provide compatibility to personal data stores if there is significant consumer demand.
+
+% From a practical point of view given the current ecosystem the ideal systems to implement personal data stores would be routers, set-top boxes or smart home hubs.
+
+% \subsection{Autonomous edges}
+
+% In a sense the idea of a personal data store can be driven to it's extreme. Each individual connected device could act as its own personal data store. However heterogeneity and limited resources of devices complicate the implementation. Nevertheless, economics of scale pushes to common platforms which would make such an architecture conceivable. 
+
+% The web of things can be seen as the simplest instantiation of this approach. Here, every connected device is a web server that exposes its resources and services as RESTful APIs. An evolution of the web of things paradigm is pursued with the machine-payable web. Cryptocurrencies enable an efficient implementation of automated nanopayments for individual API calls. This allows to bring monetary incentives to (anonymous) distributed networks, and may enable collaborative computation and data mining on a large scale.
+
+% \subsection{Decentralized platform}
+
+% A decentralized platform is a platform without a single point of failure. To achieve this data has to be replicated across different physical data stores controlled by different organizations. Data replication leads to high availability. However, replication of all data would lead to a multiplication of the security and privacy risk. 
+
+
+
+\section{Notes}
+\begin{itemize}
+\item In case 1 and 2 the running costs have to be carried by the manufacturer. In the other cases the running costs are carried by the consumer.
+\end{itemize}
+
+ISO states that confidentiality, integrity, authentication, access control, and non-repudiation should all be considered when creating any secure system.
+
+\subsection{Confidentiality}
+No unauthorized party can access appropriate messages.
+\subsection{Integrity}
+Messages cannot be changed during transit without being discovered.
+\subsection{Authentication}
+The message needs to be sent by the person/machine who claims to have sent it.
+\subsection{Access control}
+Only those users enabled can access the data.
+\subsection{Non-repudiation}
+The receiver can prove that the sender actually sent the message.
+
+\section{Anonymization}
+
+\subsection{k-Anonymity}
+\cite{Sweeney:2002}
+A release provides k-anonymity protection if the information for each person contained in the release cannot be distinguished from at least k-1 individuals whose information also appears in the release.
+
+l-diversity\cite{Machanavajjhala:2007:LDP:1217299.1217302}, t-closeness\cite{Li:2007}
+
+\subsection{Differential privacy}
+\cite{Dwork2006}
+
+\subsection{SafeAnswers}
+\cite{10.1371/journal.pone.0098790}
+While differential privacy can be used in the scenario when data of many individuals is stored in a central database, SafeAnswers provides a similar approach for an individual's personal data store.
+
+\section{Crypto}
+
+\subsection{Trusted Computing}
+
+A trusted platform provides three roots of trust:
+\begin{itemize}
+\item Root of trust for measurement (RTM)
+\item Root of trust for storage (RTS)
+\item Root of trust for reporting (RTR)
+\end{itemize}
+
+\subsubsection{Remote attestation}
+Remote attestation is the process that enables a TPM to prove to a third party that it is indeed a trusted platform. The process is based on the root of trust for reporting and hence utilizes the endorsement key (EK). The EK is accompanied by credentials e.g. from the manufacturer and third party evaluators attesting the trustworthiness of the TPM. The relying party can then device for itself if it deems the provided credentials as sufficient. 
+
+
+\subsection{Broadcast encryption}
+Crypto system that should allow a potentially large and dynamic set of receivers to decrypt messages.
+
+\subsection{Multicast encryption}
+
+\subsection{Threshold cryptosystem}
+
+Always based on secret sharing?
+
+\subsection{Group / Ring Signatures} 
+
+\subsection{Direct Anonymous Attestation / EPID}
+Allows to anonymously prove to be member of a group.
+
+Three roles in the EPID system: Issuer, Member and Verifier. Can we have decentralized issuance? What does a verifier need to know?
+
+
+
+\section{Data Markets}
+
+Markets are structures that allow two parties to trade. Buyers and sellers exchange rights to products. In an electronic data market the product may be raw data itself, but may also be access to results of particular data mining or analytics jobs. 
 
 \section{Physical and organizational separation but logical centralization}
+
+A platform for IoT data should be physically and organizationally decentralized to be resilient against single point of failures. Checks and balances and auditability are important. However, the platform should be logically centralized, providing interoperability, efficient discovery, and developer-centric APIs.  
+
+
+\section{Private property or commons}
+
+\subsection{Market design}
+According to Alan Roth, there are four levers to address market failures: (1) safety by transparency, quality assurance, or insurance, (2) thickness, essentially discover ability, (3) minimize congestion because of too much low quality offerings, and (4) minimize repugnant activity.
+
+
+
+\subsection{Pricing of IoT data}
+
+
+\subsection{Data quality}
+
+
+
+
+
+% \section{Working groups}
+
+% \begin{itemize}
+% \item IETF Thing-to-Thing Research Group
+% \item W3C Web of Things
+% \end{itemize}
+
+
+% \section{Consortia}
+
+% \subsection{Thread Group}
+% Initiated by Nest/Google for the context of the connected/smart home. Thread aims for device-to-device communications using open standards and 6LoWPAN protocols. Although there are more than 250 member companies and the certification process started in late 2015, as of writing there is no information about Thread-certified products on the market.
+
+% The fundamental security used in the Thread Network is an elliptic curve variant of J-PAKE (ECJPAKE),
+% using the NIST P-256 elliptic curve. J-PAKE is a password-authenticated key exchange
+% (PAKE) with “juggling”. It uses elliptic curve Diffie-Hellmann for key
+% agreement and Schnorr signatures as a NIZK (Non-Interactive Zero-Knowledge) proof
+% mechanism to authenticate two peers and to establish a shared secret between them based on
+% a human provided passphrase. Furthermore, a Thread network is protected with network-wide key, which is used at the MAC (Media Access Control) layer to protect the 802.15.4 MAC data frames. However, since compromising any device on the network may reveal the network-wide key to an attacker there is usually additional protection in place. 
+
+% \subsection{Open Connectivity Foundation}
+
+% \subsection{AllSeen Alliance}
+
+% \subsection{OASIS}
+
+% \subsection{Open Mobile Alliance}
+
+% \subsection{Eclipse IoT}
+
+% \subsection{IPSO}
+
+% \subsection{M2M Alliance}
+
+
+% \subsection{Industrial Internet Consortium}
+
+% \subsection{Internet of Things Consortium}
+% The Internet of Things Consortium (IoTC) is comprised of leading hardware, software and analytics companies – in areas including home automation, wearables, connected cars, smart cities, 3D printing, and virtual/augmented reality. On behalf of its members, the IoTC is dedicated to the growth of the internet of things marketplace and the development of sustainable business models.  The IoTC educates technology firms, retailers, insurance companies, marketers, media companies and the wider business community about the value of IoT.
 
 
 
@@ -558,8 +726,6 @@ Decentralized platform based on secret sharing and secure multiparty computation
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
 
 
 % An example of a floating figure using the graphicx package.
@@ -661,8 +827,6 @@ Subsubsection text here.
 
 \section{Conclusion}
 The conclusion goes here.
-
-
 
 
 
